@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Text, View} from "react-native";
-import {getMarsPhotos} from "../../api/get-mars-photos";
+import {getMarsPhotos} from "../../store/get-mars-photos";
 
 type Props = {
     camera: string

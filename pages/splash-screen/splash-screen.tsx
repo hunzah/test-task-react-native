@@ -15,7 +15,7 @@ export const SplashScreen = ({navigation}) => {
                 <Text style={styles.textMain}>Mars</Text>
                 <Text style={styles.textSecond}>by Curiosity</Text>
             </View>
-            <Image source={require('../../assets/splash.png')} style={styles.image}/>
+            <Image source={require('../../src/assets/images/splash.png')} style={styles.image}/>
         </View>
     );
 };

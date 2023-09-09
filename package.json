@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/dosis": "^5.0.8",
+    "@fontsource/dosis": "^5.0.11",
     "@react-native-community/datetimepicker": "^7.5.0",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",

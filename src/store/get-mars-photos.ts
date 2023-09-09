@@ -8,7 +8,7 @@ export const getMarsPhotos = async ({camera, date}:Props) => {
 
 
 
-    const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&camera=${camera}&api_key=${apiKey}`;
+    const apiUrl = `?earth_date=${date}&camera=${camera}&api_key=${apiKey}`;
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {

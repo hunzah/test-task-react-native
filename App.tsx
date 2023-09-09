@@ -2,11 +2,13 @@ import {StyleSheet, Text} from 'react-native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {useFonts} from "expo-font";
 import {Navigation} from "./Navigation";
+import {store} from "./src/store/store";
+import {Provider} from "react-redux";
 
 export default function App() {
     const [isFontLoaded] = useFonts({
-        'Dosis-Regular': require('./assets/fonts/ttf/dosis-latin-400-normal.ttf'),
-        'Dosis-Bold': require('./assets/fonts/ttf/dosis-latin-600-normal.ttf'),
+        'Dosis-Regular': require('@fontsource/dosis/400.css'),
+        'Dosis-Bold': require('@fontsource/dosis/600.css'),
     });
 
     if (!isFontLoaded) {
@@ -15,20 +17,8 @@ export default function App() {
     const Stack = createNativeStackNavigator();
 
     return (
-        <Navigation/>
+        <Provider store={store}>
+            <Navigation/>
+        </Provider>
     );
 }
-//
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#fff',
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//     },
-//     text: {
-//         fontFamily: 'Dosis-Regular',
-//         fontSize: 18,
-//         fontWeight: '600'
-//     }
-// });

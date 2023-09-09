@@ -1490,6 +1490,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/dosis/-/dosis-5.0.8.tgz#2de2f6d490ca564cbdf0fbae1dc9fadb5808691f"
   integrity sha512-arVMZxzDreVkaQwOP0s44YUhgEl6etcz7P1VzX/Km0SqyAojD0b1fmG6He7WTGLisaD24wDQ+FvoFl5Bql4DBQ==
 
+"@fontsource/dosis@^5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/dosis/-/dosis-5.0.11.tgz#d91592961630c9dd81c8150daabf5ccfb6f874aa"
+  integrity sha512-YwIxIlBZ7M6jvOyP0qtm6/19zicJHQvTU+M2cmk0h2XXes7ib6+r5qV68oCozV7tV9j7OvsvEe4m3KwtT/KJFg==
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"

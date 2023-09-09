@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
-import {CameraSelect} from '../../components/camera-select/Select';
-import {DateSelect} from "../../components/choose-date/choose-date";
+import {CameraSelect} from '../../src/components/camera-select/Select';
+import {DateSelect} from "../../src/components/choose-date/choose-date";
 
 export const MainScreen = ({navigation}) => {
 
@@ -21,7 +21,7 @@ export const MainScreen = ({navigation}) => {
                     <Button title="Explore" color={'#FFFFFF'} onPress={() => navigation.replace('Gallery')}/>
                 </View>
             </View>
-            <Image source={require('../../assets/main-back-image.png')} style={styles.image}/>
+            <Image source={require('../../src/assets/images/main-back-image.png')} style={styles.image}/>
         </View>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from "react-native";
-import {Images} from "../../components/images/images";
+import {Images} from "../../src/components/images/images";
 
 type Props = {
     camera: string
@@ -12,7 +12,7 @@ export const Gallery = ({navigation}, {camera, date}: Props) => {
     return (
         <View style={styles.root}>
             <Pressable style={styles.backBtn} onPress={() => navigation.replace('Main')}>
-                <Image source={require('../../assets/icons/back-arrow.png')}/>
+                <Image source={require('../../src/assets/icons/back-arrow.png')}/>
             </Pressable>
             <View style={styles.allText}>
                 <Text style={styles.title}>
