@@ -13,7 +13,7 @@ export const DateSelect = () => {
                 mode="date"
                 textColor={'white'}
             />
-            <Image source={require('./../../../assets/icons/calendar.png')}/>
+            <Image source={require('../../assets/icons/calendar.png')}/>
         </View>
 
     );

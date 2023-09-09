@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
-import { CameraSelect } from './camera-select/Select';
-import {DateSelect} from "./choose-date/choose-date";
+import React from 'react';
+import {Button, Image, StyleSheet, Text, View} from 'react-native';
+import {CameraSelect} from '../../components/camera-select/Select';
+import {DateSelect} from "../../components/choose-date/choose-date";
 
-export const MainScreen = () => {
-    const [selectedCamera, setSelectedCamera] = useState('');
+export const MainScreen = ({navigation}) => {
 
     return (
         <View style={styles.root}>
@@ -12,20 +11,17 @@ export const MainScreen = () => {
             <View style={styles.inputsAndBtn}>
                 <View>
                     <Text style={styles.text}>Rover Camera</Text>
-                    <CameraSelect
-                        selectedCamera={selectedCamera}
-                        onSelectCamera={setSelectedCamera}
-                    />
+                    <CameraSelect/>
                 </View>
                 <View>
                     <Text style={styles.text}>Date</Text>
-                    <DateSelect />
+                    <DateSelect/>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button title="Explore" color={'#FFFFFF'} />
+                    <Button title="Explore" color={'#FFFFFF'} onPress={() => navigation.replace('Gallery')}/>
                 </View>
             </View>
-            <Image source={require('../../assets/main-back-image.png')} style={styles.image} />
+            <Image source={require('../../assets/main-back-image.png')} style={styles.image}/>
         </View>
     );
 };

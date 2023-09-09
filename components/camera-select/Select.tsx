@@ -1,29 +1,26 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, Text, View, StyleSheet, Image, Modal, FlatList, TouchableWithoutFeedback} from 'react-native';
 
-export const CameraSelect = ({selectedCamera, onSelectCamera}) => {
+
+const cameras = [
+    {camera: "Front Hazard Avoidance Camera"},
+    {camera: "Rear Hazard Avoidance Camera"},
+    {camera: "Mast Camera"},
+    {camera: "Chemistry and Camera Complex"},
+    {camera: "Mars Hand Lens Image"},
+    {camera: "Mars Descent Imager"},
+    {camera: "Navigation Camera"},
+    {camera: "Panoramic Camera"},
+    {camera: "Miniature Thermal Emission Spectrometer (Mini-TES)\t"},
+];
+export const CameraSelect = () => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [selectedCamera, setSelectedCamera] = useState<string>(cameras[0].camera);
 
-    const cameras = [
-        {label: "Камера 1"},
-        {label: "Камера 2"},
-        {label: "Камера 3"},
-        {label: "Камера 4"},
-        {label: "Камера 5"},
-        {label: "Камера 6"},
-        {label: "Камера 8"},
-        {label: "Камера 9"},
-        {label: "Камера 10"},
-        {label: "Камера 11"},
-        {label: "Камера 12"},
-        {label: "Камера 13"},
-        {label: "Камера 14"},
-    ];
-
-    const handleCameraSelect = (itemValue) => {
-        onSelectCamera(itemValue);
-        setModalVisible(false);
-    };
+    const handleCameraSelect = (el)=> {
+        setSelectedCamera(el)
+        setModalVisible(false)
+    }
 
     return (
         <View style={styles.root}>
@@ -34,7 +31,7 @@ export const CameraSelect = ({selectedCamera, onSelectCamera}) => {
                 <Text style={styles.text}>{selectedCamera}</Text>
                 <Image
                     style={modalVisible && styles.rotatedIcon}
-                    source={require('../../../assets/icons/open-select-arrow.png')}
+                    source={require('../../assets/icons/open-select-arrow.png')}
                 />
             </TouchableOpacity>
             <Modal
@@ -50,19 +47,18 @@ export const CameraSelect = ({selectedCamera, onSelectCamera}) => {
                             <FlatList
                                 isTVSelectable={true}
                                 data={cameras}
-                                renderItem={({item}) => (
-                                    <TouchableOpacity
-                                        key={item.label}
-                                        style={styles.modalItem}
-                                        onPress={() => handleCameraSelect(item.label)}
-                                    >
-                                        <Text style={styles.text}>{item.label}</Text>
-                                    </TouchableOpacity>
-                                )}
-                                keyExtractor={(item) => item.label}
+                                keyExtractor={(item) => item.camera}
                                 showsVerticalScrollIndicator={false}
                                 initialNumToRender={1}
-
+                                renderItem={({item, index}) => (
+                                    <TouchableOpacity
+                                        key={index}
+                                        style={styles.modalItem}
+                                        onPress={() => handleCameraSelect(item.camera)}
+                                    >
+                                        <Text style={styles.text}>{item.camera}</Text>
+                                    </TouchableOpacity>
+                                )}
                             />
                         </View>
                     </View>
