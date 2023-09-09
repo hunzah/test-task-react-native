@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, Text, View, StyleSheet, Image, Modal, FlatList, TouchableWithoutFeedback} from 'react-native';
+import {TextRegular} from "../styles/text-style";
 
 
 const cameras = [
@@ -28,7 +29,7 @@ export const CameraSelect = () => {
                 style={styles.select}
                 onPress={() => setModalVisible(!modalVisible)}
             >
-                <Text style={styles.text}>{selectedCamera}</Text>
+                <TextRegular>{selectedCamera}</TextRegular>
                 <Image
                     style={modalVisible && styles.rotatedIcon}
                     source={require('../../assets/icons/open-select-arrow.png')}
@@ -56,7 +57,7 @@ export const CameraSelect = () => {
                                         style={styles.modalItem}
                                         onPress={() => handleCameraSelect(item.camera)}
                                     >
-                                        <Text style={styles.text}>{item.camera}</Text>
+                                        <TextRegular>{item.camera}</TextRegular>
                                     </TouchableOpacity>
                                 )}
                             />
@@ -72,14 +73,7 @@ const styles = StyleSheet.create({
     root: {
         position: 'relative',
     },
-    text: {
-        fontFamily: 'Dosis-Regular',
-        fontStyle: 'normal',
-        fontSize: 18,
-        fontWeight: '400',
-        letterSpacing: 0.36,
-        color: 'black',
-    },
+
     select: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -117,11 +111,5 @@ const styles = StyleSheet.create({
         padding: 15,
         borderBottomWidth: 1,
         borderBottomColor: '#E0E0E0',
-        fontFamily: 'Dosis-Regular',
-        fontStyle: 'normal',
-        color: 'white',
-        fontSize: 18,
-        fontWeight: '400',
-        letterSpacing: 0.36,
     },
 });

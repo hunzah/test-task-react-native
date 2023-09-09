@@ -1,27 +1,28 @@
 import React from 'react';
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
-import {CameraSelect} from '../../src/components/camera-select/Select';
-import {DateSelect} from "../../src/components/choose-date/choose-date";
+import {CameraSelect} from '../../components/camera-select/Select';
+import {DateSelect} from "../../components/choose-date/choose-date";
+import {TextBold, TextRegular} from "../../components/styles/text-style";
 
 export const MainScreen = ({navigation}) => {
 
     return (
         <View style={styles.root}>
-            <Text style={styles.title}>Select Camera and Date</Text>
+            <TextBold>Select Camera and Date</TextBold>
             <View style={styles.inputsAndBtn}>
                 <View>
-                    <Text style={styles.text}>Rover Camera</Text>
+                    <TextRegular style={styles.text}>Rover Camera</TextRegular>
                     <CameraSelect/>
                 </View>
                 <View>
-                    <Text style={styles.text}>Date</Text>
+                    <TextRegular style={styles.text}>Date</TextRegular>
                     <DateSelect/>
                 </View>
                 <View style={styles.buttonContainer}>
                     <Button title="Explore" color={'#FFFFFF'} onPress={() => navigation.replace('Gallery')}/>
                 </View>
             </View>
-            <Image source={require('../../src/assets/images/main-back-image.png')} style={styles.image}/>
+            <Image source={require('../../assets/images/main-back-image.png')} style={styles.image}/>
         </View>
     );
 };
@@ -32,12 +33,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#DCCEBE',
         paddingTop: 42,
-    },
-    title: {
-        fontFamily: 'Dosis-Regular',
-        fontSize: 18,
-        fontWeight: '600',
-        lineHeight: 22,
     },
     image: {
         width: '100%',
@@ -54,9 +49,7 @@ const styles = StyleSheet.create({
         bottom: 300,
     },
     text: {
-        fontFamily: 'Dosis-Regular',
         fontSize: 14,
-        fontWeight: '400',
         letterSpacing: 0.28,
     },
     buttonContainer: {

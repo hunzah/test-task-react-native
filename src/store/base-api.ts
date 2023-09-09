@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {queryParams} from "./types";
+import {queryParams, ResponseType} from "./types";
 
 const apiKey = "UNDkYpzngDWTlMo961oDZdYYy4ayaePI2Y6PFhb1";
 export const baseApi = createApi({
@@ -10,7 +10,7 @@ export const baseApi = createApi({
     }),
     endpoints: builder => {
         return {
-            getDecks: builder.query<any, queryParams>({
+            getPhotos: builder.query<ResponseType, queryParams>({
                 query: ({ date, camera }) => `?earth_date=${date}&camera=${camera}&api_key=${apiKey}`,
 
             }),
@@ -18,4 +18,4 @@ export const baseApi = createApi({
     },
 })
 
-export const { useGetDecksQuery } = baseApi
+export const { useGetPhotosQuery } = baseApi

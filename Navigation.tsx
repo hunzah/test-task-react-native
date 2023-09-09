@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SplashScreen} from "./pages/splash-screen/splash-screen";
-import {MainScreen} from "./pages/main-screen/main-screen";
-import {Gallery} from "./pages/gallery/Gallery";
+import {SplashScreen} from "./src/pages/splash-screen/splash-screen";
+import {MainScreen} from "./src/pages/main-screen/main-screen";
+import {Gallery} from "./src/pages/gallery/Gallery";
 
 
 const Stack = createNativeStackNavigator();

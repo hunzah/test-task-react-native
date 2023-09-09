@@ -5,7 +5,7 @@ export type ResponsePhotos = {
     id: number;
     sol: number;
     camera: PhotosCamera;
-    img_src: string;
+    img_src: any;
     earth_date: string;
     rover: PhotosRover;
 }

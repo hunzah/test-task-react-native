@@ -7,8 +7,9 @@ import {Provider} from "react-redux";
 
 export default function App() {
     const [isFontLoaded] = useFonts({
-        'Dosis-Regular': require('@fontsource/dosis/400.css'),
-        'Dosis-Bold': require('@fontsource/dosis/600.css'),
+        'Dosis-Tini': require('./src/assets/fonts/dosis-latin-300-normal.ttf'),
+        'Dosis-Regular': require('./src/assets/fonts/dosis-latin-400-normal.ttf'),
+        'Dosis-Bold': require('./src/assets/fonts/dosis-latin-600-normal.ttf'),
     });
 
     if (!isFontLoaded) {

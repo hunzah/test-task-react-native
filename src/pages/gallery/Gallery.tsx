@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from "react-native";
-import {Images} from "../../src/components/images/images";
+import {Images} from "../../components/images/images";
+import {TextBold, TextRegular} from "../../components/styles/text-style";
 
 type Props = {
     camera: string
@@ -12,13 +13,11 @@ export const Gallery = ({navigation}, {camera, date}: Props) => {
     return (
         <View style={styles.root}>
             <Pressable style={styles.backBtn} onPress={() => navigation.replace('Main')}>
-                <Image source={require('../../src/assets/icons/back-arrow.png')}/>
+                <Image source={require('../../assets/icons/back-arrow.png')}/>
             </Pressable>
             <View style={styles.allText}>
-                <Text style={styles.title}>
-                    Select Camera and Date
-                </Text>
-                <Text style={styles.text2}>18 Oct, 2021</Text>
+                <TextBold>Select Camera and Date</TextBold>
+                <TextRegular style={styles.text2}>18 Oct, 2021</TextRegular>
             </View>
             <Images camera={camera} date={date}/>
         </View>
@@ -41,16 +40,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
-        fontFamily: 'Dosis-Regular',
-        fontSize: 18,
         fontWeight: '600',
         lineHeight: 22,
+        letterSpacing: 0
+
     },
     text2: {
-        fontFamily: 'Dosis-Regular',
         fontSize: 13,
-        fontWeight: '400',
         lineHeight: 22,
+        letterSpacing: 0
     },
     backBtn: {
         position: "absolute",

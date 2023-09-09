@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+import {TextBold, TextRegular, TextTini} from "../../components/styles/text-style";
 
 
 export const SplashScreen = ({navigation}) => {
@@ -12,10 +13,10 @@ export const SplashScreen = ({navigation}) => {
     return (
         <View style={styles.root}>
             <View style={styles.allText}>
-                <Text style={styles.textMain}>Mars</Text>
-                <Text style={styles.textSecond}>by Curiosity</Text>
+                <TextTini style={styles.textMain}>Mars</TextTini>
+                <TextBold style={styles.textSecond}>by Curiosity</TextBold>
             </View>
-            <Image source={require('../../src/assets/images/splash.png')} style={styles.image}/>
+            <Image source={require('../../assets/images/splash.png')} style={styles.image}/>
         </View>
     );
 };
@@ -40,18 +41,12 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     textMain: {
-        fontFamily: 'Dosis-Regular',
-        fontStyle: 'normal',
-        fontSize: 90,
-        fontWeight: '300',
-        letterSpacing: 1.8,
+        color:'white',
         textTransform: 'uppercase',
-        color: 'white',
     },
     textSecond: {
-        fontFamily: 'Dosis-Regular',
-        fontStyle: 'normal',
-        color: 'white',
+        fontFamily: 'Dosis-Bold',
+        color:'white',
         fontSize: 24,
         fontWeight: '600',
         letterSpacing: 0.48,
