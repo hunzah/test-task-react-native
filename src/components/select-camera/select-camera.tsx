@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FlatList, Image, Modal, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
-import {TextRegular} from "../styles/text-style";
+import {TextRegular} from "../styles/text/text-style";
 import {setSelectedCamera} from "../../store/appReducer";
 import {AppDispatch} from "../../store/store";
 import {useAppDispatch, useAppSelector} from "../../store/hooks";
@@ -19,23 +19,22 @@ const cameras: { camera: string }[] = [
     {camera: "Miniature Thermal Emission Spectrometer (Mini-TES)"},
 ];
 export const CameraSelect = () => {
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
     const dispatch: AppDispatch = useAppDispatch();
     const selectedCamera = useAppSelector(state => state.camera.camera as string);
+    const setModalOpen = () => setModalVisible(true)
+    const setModalClose = () => setModalVisible(false)
+
     const handleCameraSelect = (camera: string) => {
-        setModalVisible(false)
+        setModalClose()
         dispatch(setSelectedCamera(camera));
     }
-    // const handleCameraSelect = (camera: string) => {
-    //     setModalVisible(false)
-    //     dispatch(setSelectedCamera(camera));
-    // }
 
     return (
         <View style={styles.root}>
             <TouchableOpacity
                 style={styles.select}
-                onPress={() => setModalVisible(!modalVisible)}
+                onPress={setModalOpen}
             >
                 <TextRegular>{selectedCamera}</TextRegular>
                 <Image
@@ -49,7 +48,7 @@ export const CameraSelect = () => {
                 animationType="slide"
             >
                 <TouchableWithoutFeedback
-                    onPress={() => setModalVisible(false)}
+                    onPress={setModalClose}
                 >
                     <View style={styles.modalBackground}>
                         <View style={styles.modalContainer}>
