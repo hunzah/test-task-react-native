@@ -46,3 +46,4 @@ const cameraSlice = createSlice({
 
 export const {setSelectedCamera, setDate} = cameraSlice.actions;
 export default cameraSlice.reducer;
+

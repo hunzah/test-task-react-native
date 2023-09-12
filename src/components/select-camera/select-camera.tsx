@@ -18,10 +18,13 @@ const cameras: { camera: string }[] = [
     {camera: "Panoramic Camera"},
     {camera: "Miniature Thermal Emission Spectrometer (Mini-TES)"},
 ];
+
+
+
 export const CameraSelect = () => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const dispatch: AppDispatch = useAppDispatch();
-    const selectedCamera = useAppSelector(state => state.camera.camera as string);
+    const selectedCamera = useAppSelector(state => state.camera.camera);
     const setModalOpen = () => setModalVisible(true)
     const setModalClose = () => setModalVisible(false)
 

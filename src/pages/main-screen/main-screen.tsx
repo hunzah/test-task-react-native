@@ -4,11 +4,17 @@ import {CameraSelect} from '../../components/select-camera/select-camera';
 import {SelectDate} from "../../components/select-date/select-date";
 import {TextBold, TextRegular} from "../../components/styles/text/text-style";
 import {styles} from "./styles";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../../navigation";
 
-export const MainScreen = ({navigation}) => {
-    const titleText = 'Select Camera and Date'
-    const roverCameraText = 'Rover Camera'
-    const dateText = 'Date'
+type MainScreen = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'Main'>;
+}
+
+const titleText = 'Select Camera and Date'
+const roverCameraText = 'Rover Camera'
+const dateText = 'Date'
+export const MainScreen = ({navigation}:MainScreen) => {
     const onPressHandler = () => navigation.replace('Gallery')
 
     return (

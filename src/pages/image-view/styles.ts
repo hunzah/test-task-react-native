@@ -25,6 +25,9 @@ export const styles = StyleSheet.create({
         top: 56,
         right: 16,
     },
+    disabledUploadBtn:{
+        opacity:0.3
+    },
     imgContainer: {
         width: '90%',
         height: '80%',

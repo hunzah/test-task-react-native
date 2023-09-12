@@ -6,12 +6,17 @@ import {useAppSelector} from "../../store/hooks";
 import {RootState} from "../../store/store";
 import {yearMonthFormatDate} from "../../tools/tools";
 import {styles} from "./styles";
+import {getSelectedDate} from "../../store/memoizedSelectors";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../../navigation";
 
 
-export const Gallery = ({navigation}) => {
-    const camera = useAppSelector((state: RootState) => state.camera.camera)
-    const abbreviation = useAppSelector((state: RootState) => state.camera.abbreviation)
-    const date = useAppSelector((state: RootState) => state.camera.date)
+type Gallery = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'Gallery'>;
+}
+export const Gallery = ({navigation}: Gallery) => {
+    const {camera, abbreviation} = useAppSelector((state: RootState) => state.camera)
+    const date = useAppSelector(getSelectedDate);
     const onPressHandler = () => navigation.replace('Main')
 
     return (

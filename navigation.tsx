@@ -27,3 +27,10 @@ export const Navigation = () => {
         </NavigationContainer>
     );
 }
+export type RootStackParamList = {
+    Splash: undefined;
+    Main: undefined;
+    Gallery: undefined;
+    Images: undefined;
+    ImageView: undefined;
+};

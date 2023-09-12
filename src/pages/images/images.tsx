@@ -2,19 +2,20 @@ import React from 'react';
 import {FlatList, Image, TouchableOpacity, View} from "react-native";
 import {useGetPhotosQuery} from "../../store/base-api";
 import {TextRegular} from "../../components/styles/text/text-style";
-import {useNavigation} from "@react-navigation/native";
+import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
 import {styles} from "./styles";
 
 type Images = {
     abbreviation: string
     date: string
 }
+const loadingText = 'Loading...'
+const errorText = 'Error: Something went wrong.'
+const NoPhotoFoundsText = 'No photos found. Please try to change camera or date'
 export const Images = ({abbreviation, date}: Images) => {
-    const navigation: any = useNavigation()
+    const navigation: NavigationProp<ParamListBase> = useNavigation()
     const {data, error, isLoading} = useGetPhotosQuery({abbreviation: abbreviation, date: date});
-    const loadingText = 'Loading...'
-    const errorText = 'Error: Something went wrong.'
-    const NoPhotoFoundsText = 'No photos found. Please try to change camera or date'
+
 
     const onPressHandler = (id: number, src: string) => {
         navigation.navigate('ImageView', {id, src});

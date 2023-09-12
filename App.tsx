@@ -1,7 +1,6 @@
-import {StyleSheet, Text} from 'react-native';
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {Text} from 'react-native';
 import {useFonts} from "expo-font";
-import {Navigation} from "./Navigation";
+import {Navigation} from "./navigation";
 import {store} from "./src/store/store";
 import {Provider} from "react-redux";
 
@@ -15,7 +14,7 @@ export default function App() {
     if (!isFontLoaded) {
         return <Text>Loading...</Text>;
     }
-    const Stack = createNativeStackNavigator();
+
 
     return (
         <Provider store={store}>

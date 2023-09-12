@@ -3,10 +3,16 @@ import {Image, View} from 'react-native';
 import {styles} from "./styles";
 import {GradientText} from "../../components/styles/gradient-text/gradient-text";
 import {TextBold, TextTini} from "../../components/styles/text/text-style";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../../navigation";
 
-export const SplashScreen = ({navigation}) => {
-    const marsText = 'Mars'
-    const byCuriosityText = 'by Curiosity'
+type SplashScreen = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'Splash'>;
+}
+const marsText = 'Mars'
+const byCuriosityText = 'by Curiosity'
+export const SplashScreen = ({navigation}: SplashScreen) => {
+
     useEffect(() => {
         setTimeout(() => {
             navigation.replace('Main');
@@ -20,10 +26,10 @@ export const SplashScreen = ({navigation}) => {
                     <TextTini style={styles.textMain}>{marsText}</TextTini>
                 </GradientText>
                 <GradientText colors={['#FFF', '#3A1707']}>
-                    <TextBold >{byCuriosityText}</TextBold>
+                    <TextBold>{byCuriosityText}</TextBold>
                 </GradientText>
             </View>
-            <Image source={require('../../assets/images/splash.png')} style={styles.image} />
+            <Image source={require('../../assets/images/splash.png')} style={styles.image}/>
         </View>
     );
 };

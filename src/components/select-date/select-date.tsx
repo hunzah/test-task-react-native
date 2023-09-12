@@ -1,16 +1,15 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
-import {RootState} from "../../store/store";
 import {useAppDispatch, useAppSelector} from "../../store/hooks";
 import {setDate} from "../../store/appReducer";
 import {dayMonthFormatChanger} from "../../tools/tools";
 import {styles} from "./styles";
+import {getSelectedDate} from "../../store/memoizedSelectors";
 
 export const SelectDate = () => {
     const dispatch = useAppDispatch();
-    const date = useAppSelector((state: RootState) => new Date(state.camera.date));
-
+    const date = useAppSelector(getSelectedDate);
     const dateHandler = (event: DateTimePickerEvent, value: Date) => {
         dispatch(setDate(dayMonthFormatChanger(value)));
     }
@@ -19,7 +18,7 @@ export const SelectDate = () => {
         <View style={styles.root}>
             <DateTimePicker
                 themeVariant={'dark'}
-                value={date}
+                value={new Date(date)}
                 mode="date"
                 textColor={'white'}
                 onChange={dateHandler}
