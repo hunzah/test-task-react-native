@@ -34,6 +34,6 @@ export type PhotosRoverCameras = {
 }
 
 export type queryParams = {
-    camera: string,
+    abbreviation: string,
     date: string,
 }
