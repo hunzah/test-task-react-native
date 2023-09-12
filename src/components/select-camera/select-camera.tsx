@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, Image, Modal, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
+import {FlatList, Image, Modal, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
 import {TextRegular} from "../styles/text/text-style";
 import {setSelectedCamera} from "../../store/appReducer";
 import {AppDispatch} from "../../store/store";

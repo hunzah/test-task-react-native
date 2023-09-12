@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Image, StyleSheet, Text, View} from 'react-native';
+import {Button, Image, View} from 'react-native';
 import {CameraSelect} from '../../components/select-camera/select-camera';
 import {SelectDate} from "../../components/select-date/select-date";
 import {TextBold, TextRegular} from "../../components/styles/text/text-style";

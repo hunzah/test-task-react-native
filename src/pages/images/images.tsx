@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Image, StyleSheet, TouchableOpacity, View} from "react-native";
+import {FlatList, Image, TouchableOpacity, View} from "react-native";
 import {useGetPhotosQuery} from "../../store/base-api";
 import {TextRegular} from "../../components/styles/text/text-style";
 import {useNavigation} from "@react-navigation/native";

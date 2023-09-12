@@ -4,16 +4,27 @@ import {TextBold, TextRegular} from "../../components/styles/text/text-style";
 import {RouteProp, useNavigation} from "@react-navigation/native";
 import {styles} from "./styles";
 
+
 type ImageView = { route: RouteProp<{ ImageView: Params }, 'ImageView'> }
 type Params = {
-    id:number
-    src:string
+    id: number
+    src: string
 }
 
 export const ImageView = ({route}: ImageView) => {
     const navigation: any = useNavigation()
     const {id, src} = route.params
     const titleText = 'Photo ID'
+
+
+    const handleSaveImage = async () => {
+        try {
+            const response = await fetch(src);
+            const blob = await response.blob();
+        } catch (error) {
+            console.log('Ошибка при загрузке изображения:', error);
+        }
+    }
     const onPressHandler = () => navigation.navigate('Gallery')
 
     return (
@@ -25,7 +36,7 @@ export const ImageView = ({route}: ImageView) => {
                 <TextRegular style={styles.text}>{titleText}</TextRegular>
                 <TextBold style={styles.text}>{id.toString()}</TextBold>
             </View>
-            <Pressable style={styles.uploadBtn}>
+            <Pressable style={styles.uploadBtn} onPress={handleSaveImage}>
                 <Image source={require('../../assets/icons/upload.png')}/>
             </Pressable>
             <View style={styles.imgContainer}>
